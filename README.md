@@ -1,9 +1,12 @@
 A synthetic dataset from a fictional study of psychiatric and physical morbidity study in London .
 The study was a cross-sectional survey of 1834 adults aged 16 years and over residing in the 32 London boroughs between 2008 and 2010. The total population size for the 32 boroughs was 7,653,600 (mid-2009 estimate).
 The dataset contains the following variables:
-pid		Participant numeric identifier 
+pid: Participant numeric identifier 
+
 borough	Borough
+
 age	-Participant age at time of completing the survey 
+
 ses-	Socioeconomic measure of deprivation
 1 = Least deprived; 5 = Most deprived. 
 employment	-Nature of work (Manual/Office)
