@@ -3,15 +3,25 @@ The dataset contains the following variables:
 
 pid		Participant numeric identifier 
 borough	Borough
+
 age	Participant age at time of completing the survey 
+
 ses	Socioeconomic measure of deprivation
+
 1 = Least deprived; 5 = Most deprived. 
+
 employment	Nature of work (Manual/Office)
+
 gender	Gender (Female/Male)
+
 exercise	How many times a week they exercise 
+
 smoker	Smoking status (Smoker/Non-smoker)
+
 pm25	Particulate matter with an aerodynamic diameter of <2.5 mm, annual average concentrations (mg/m3).
+
 phq9	Depression symptom score
+
 0 = No depressive symptoms; 27 = all depressive symptoms.
 
 Depression affects around 1 in 6 adults in the UK (Champion Health UK, 2023). The severity of depression results in reduced quality of life, impaired day-to-day functioning and socioeconomic deterioration (Hammer-Helmich et al., 2018; Vos et al., 2015). Air pollution ranks among the top five risks for deaths all over the globe (Cohen et al., 2017). A recent systematic review and meta-analysis showed associations of PM2.5 and PM10 with depression, anxiety, psychosis, bipolar disorder and suicide in adults, with more than six months of exposure to pollutants causing severe depression (Braithwaite et. Al., 2019). Studies have suggested both direct and indirect causal links between air pollution and depression. Indirectly, exposure to air pollution can first result in increased risk of developing neurological and physical impairments, cumulatively leading to depression (Qiu et. al., 2023). Outdoor air pollution also limits the amount of time people spend outdoors, reducing physical activity and inducing social isolation, resulting in detrimental effects to mental health (Abu-Omar, 2004). Directly, mechanistic studies have shown that inhalation of air pollutants causes neuroinflammation and cerebrovascular damage (Babadjouni et al., 2017), resulting in onset of depression as a result of neurotransmitter dysregulation. 
@@ -33,76 +43,68 @@ When conducting a chi-square test to determine whether occurrence of missing val
 Table 1. Descriptive Statistics for the study population
 Summary 
 N	1,834
+
 phq9	8.720 (5.654) 7.000
+
 pm25	14.037 (3.031) 14.100
+
 age	35.665 (7.026) 35.000
+
 _gender	
+
 0	889 (48.8%)
+
 1	931 (51.2%)
+
 _smoker	
+
 0	554 (30.2%)
+
 1	1,280 (69.8%)
+
 _employment	
+
 0	1,381 (80.2%)
+
 1	341 (19.8%)
+
 SES	
+
 1	318 (21.5%)
+
 2	304 (20.6%)
+
 3	269 (18.2%)
+
 4	310 (21.0%)
+
 5	277 (18.7%)
+
 exercise	
+
 0	308 (17.5%)
+
 1	528 (30.1%)
+
 2	458 (26.1%)
+
 3	271 (15.4%)
+
 4	139 (7.9%)
+
 5	39 (2.2%)
+
 6	9 (0.5%)
+
 7	3 (0.2%)
+
 8	1 (0.1%)
 	
 
 As can be seen in Table 1, the average age of participants in this dataset was approximately 35.67 years with a standard deviation of 7.03. Gender distribution showed 48.85% male and 51.15% female population. Socioeconomic status levels were diverse, with 21.52% being least deprived and 19.87% being most deprived. 80.2% of the sample worked in the office whereas 19.8% were involved in manual labour. Majority exercised a day a week (30.07%) followed by twice a week (26.08%). and no exercise at all (17.54%). 69.79% of the sample did not smoke, compared to 30.21% smokers. Regarding boroughs (Table 2), 3.76% of the sample belonged to Hounslow followed by Croydon (3.65%). The average depression scores were approximately 8.72 with a standard deviation of 5.65. The distribution of depression scores indicates a right skewness (i.e., mean (8.72) > median (7.00). Therefore, we log transform this distribution to get a mean depression score of 1.92 with a standard deviation of 0.62 and median score of 1.95. The average air pollution levels pm25 were approximately 14.04 with a standard deviation of 3.03.   
 
-Table 2. borough	Freq.	Percent	Cum.
-Barking and Dagenham	59	3.22	3.22
-Barnet	55	3.00	6.22
-Bexley	57	3.11	9.32
-Brent	64	3.49	12.81
-Bromley	59	3.22	16.03
-Camden	62	3.38	19.41
-Croydon	67	3.65	23.06
-Ealing	59	3.22	26.28
-Enfield	57	3.11	29.39
-Greenwich	63	3.44	32.82
-Hackney	60	3.27	36.10
-Hammersmith and Fulham	46	2.51	38.60
-Haringey	62	3.38	41.98
-Harrow	47	2.56	44.55
-Havering	60	3.27	47.82
-Hillingdon	61	3.33	51.15
-Hounslow	69	3.76	54.91
-Islington	65	3.54	58.45
-Kensington and Chelsea	54	2.94	61.40
-Kingston upon Thames	58	3.16	64.56
-Lambeth	59	3.22	67.78
-Lewisham	62	3.38	71.16
-Merton	48	2.62	73.77
-Newham	60	3.27	77.04
-Redbridge	52	2.84	79.88
-Richmond upon Thames	60	3.27	83.15
-Southwark	49	2.67	85.82
-Sutton	59	3.22	89.04
-Tower Hamlets	50	2.73	91.77
-Waltham Forest	52	2.84	94.60
-Wandsworth	51	2.78	97.38
-Westminster	48	2.62	100.00
-			
-Total	1,834	100.00	
 
-
-![alt text](Screenshot 2024-04-14 075125.png)
+![alt text](dag.png)
 
 My rationale for the specified DAG is a mixture of evidence from past literature and my assumptions regarding the proposed causal relationship based on my understanding of the concepts/variables:
 It is likely that one’s age causally determines the kind of employment one is suitable for (i.e., manual vs employed) as well as one’s ability to exercise a certain number of times a week. Therefore:
@@ -141,7 +143,7 @@ The assumptions for linear mixed effects model are:
 1.	Explanatory variables must be related linearly to the response variable: This assumption holds true as can be seen in Section 4 Figure 1, i.e., the residuals have a mean of zero for every value of the fitted values. This can indicate that other relevant variables and interactions are included in our model.
 2.	Independence of errors: There is no correlation between residuals and fitted values as can be seen in Section 4 Figure 1. Therefore, this assumption holds true. 
 
-![alt text](Screenshot 2024-04-14 07521.png)
+![alt text](indepErrors.png)
 
 3.	The residuals are normally distributed: We run a histogram of residuals followed by the quantile of normal distribution (Section 4, Figure 2). The histogram is approximately normally distributed. The residuals follow an approximately linear trend in the qnorm plot, indicating that the residuals are normally distributed (Section 4, Figure 3). 
 4.	Homoscedasticity: the spread of the residuals across the fitted values do not vary with a discernible pattern, suggesting homoscedasticity (figure 1). 
