@@ -147,7 +147,7 @@ The assumptions for linear mixed effects model are:
 
 3.	The residuals are normally distributed: We run a histogram of residuals followed by the quantile of normal distribution (Section 4, Figure 2). The histogram is approximately normally distributed. The residuals follow an approximately linear trend in the qnorm plot, indicating that the residuals are normally distributed (Section 4, Figure 3). 
 4.	Homoscedasticity: the spread of the residuals across the fitted values do not vary with a discernible pattern, suggesting homoscedasticity (figure 1). 
-![alt text](linearity check.png)
+![alt text](linearity.png)
 
 Some past studies have suggested that effects of air pollution with mental health depend on smoking. Specifically, there is evidence that the association of air pollution with depressive symptoms is stronger among current smokers compared to non-smokers. Hereby I test this hypothesis:
 For non-smokers, the coefficient for pm25 is approximately 0.021 (95% CI [0.008, 0.034], p=0.002), suggesting that for every unit increase in pm25, the logarithm of depression scores increases by approximately 0.021 units. Across different SES categories, substantial significance is observed only for categories 4 (95% CI [0.102, 0.340], p<0.001) and 5 (95% CI [0.120, 0.376], p<0.001), indicating that higher SES levels are associated with higher depression scores. Across boroughs, the estimated variance is approximately 0.036, indicating variability in depression scores across boroughs.
